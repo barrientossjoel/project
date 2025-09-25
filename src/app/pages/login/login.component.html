@@ -1,0 +1,7 @@
+<h2>Ingresar</h2>
+<form (ngSubmit)="onLogin()">
+  <input type="text" placeholder="Usuario" [(ngModel)]="username" name="username" required />
+  <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required />
+  <button type="submit">Entrar</button>
+  <p *ngIf="error" style="color:red;">Credenciales incorrectas</p>
+</form>

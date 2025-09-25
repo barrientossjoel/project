@@ -1,0 +1,9 @@
+<nav>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/servicios">Servicios</a>
+    <a routerLink="/nosotros">Nosotros</a>
+  
+    <a routerLink="/login" *ngIf="!auth.isLoggedIn()">Ingresar</a>
+    <a (click)="logout()" *ngIf="auth.isLoggedIn()">Cerrar sesión</a>
+  </nav>
+  

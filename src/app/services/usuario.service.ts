@@ -9,12 +9,15 @@ import { Usuario } from '../models/usuario.model';
 export class UsuarioService {
   private apiUrl = 'http://localhost:8000/api/usuarios.php';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.apiUrl);
   }
 
+  getUsuario(id: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUrl}?id=${id}`);
+  }
   createUsuario(usuario: Usuario): Observable<any> {
     return this.http.post(this.apiUrl, usuario);
   }
