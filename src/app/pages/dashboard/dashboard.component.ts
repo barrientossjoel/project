@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { NgbModal, NgbModalModule, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/usuario.service';
-import { NotificacionService } from '../../services/notification.service';
+import { NotificacionService } from '../../services/notificacion.service';
 
 @Component({
-  selector: 'dashboard',
+  selector: 'app-dashboard',
   standalone: true,
   imports: [
     CommonModule,

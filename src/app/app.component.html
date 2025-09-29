@@ -1,3 +1,14 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+
+<!-- Main Content -->
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Footer -->
+<app-footer></app-footer>
+
 <!-- Toasts globales -->
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1200">
   @for (toast of notificaciones.getToasts(); track toast) {
@@ -18,6 +29,3 @@
     </ngb-toast>
   }
 </div>
-
-<!-- CRUD de Usuarios -->
-<app-usuarios></app-usuarios>

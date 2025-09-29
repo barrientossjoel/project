@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { UsuariosComponent } from './usuarios/usuarios.component';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 // ✅ Importa NgbToastModule (para los toasts)
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,8 +16,10 @@ import { NotificacionService } from './services/notificacion.service';
   selector: 'app-root',
   standalone: true,
   imports: [
-    // ✅ Componente personalizado
-    UsuariosComponent,
+    // ✅ Componentes
+    NavbarComponent,
+    FooterComponent,
+    RouterOutlet,
 
     // ✅ Módulos necesarios
     NgbToastModule,   // ← Para <ngb-toast> y <ngb-toast-header>
