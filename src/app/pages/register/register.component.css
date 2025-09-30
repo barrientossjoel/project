@@ -95,6 +95,17 @@
   box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
 }
 
+.btn-register:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-register:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .error-message {
   background: #f8d7da;
   color: #721c24;

@@ -5,6 +5,7 @@ import { NgbModal, NgbModalModule, NgbModalRef } from '@ng-bootstrap/ng-bootstra
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/usuario.service';
 import { NotificacionService } from '../../services/notificacion.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,7 +28,8 @@ export class DashboardComponent implements OnInit {
     private usuarioService: UsuarioService,
     private notificacionService: NotificacionService,
     private modalService: NgbModal,
-    private vcr: ViewContainerRef
+    private vcr: ViewContainerRef,
+    private auth: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -87,5 +89,9 @@ export class DashboardComponent implements OnInit {
   resetForm(): void {
     this.usuario = { nombre: '', email: '' };
     this.editing = false;
+  }
+
+  getCurrentUserName(): string {
+    return this.auth.getCurrentUserName();
   }
 }
