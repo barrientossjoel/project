@@ -27,18 +27,6 @@ Una plataforma educativa moderna para aprender programación desde cero hasta ni
 ### 1. Configurar el Backend
 
 ```bash
-# Navegar al directorio backend
-cd backend
-
-# Instalar dependencias (si las hay)
-# No hay dependencias específicas para PHP
-
-# Configurar la base de datos
-# Editar config.php con tus credenciales de MySQL:
-# - $host = "localhost"
-# - $username = "root" 
-# - $password = "tu_password"
-# - $dbname = "crud_db"
 
 # Iniciar el servidor PHP
 php -S localhost:8000
