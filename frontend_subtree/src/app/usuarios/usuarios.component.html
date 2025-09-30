@@ -1,0 +1,142 @@
+<div class="container mt-5">
+    <div class="p-4 bg-light rounded-3 shadow-sm mb-4 text-center">
+      <h1 class="text-primary mb-1">
+        <i class="bi bi-people"></i> Gestión de Usuarios
+      </h1>
+      <p class="text-muted mb-0">Crea, edita y elimina usuarios</p>
+    </div>
+  
+    <!-- Formulario -->
+    <div class="card shadow-sm mb-5">
+      <div class="card-header bg-primary text-white">
+        <h5>{{ editing ? 'Editar Usuario' : 'Nuevo Usuario' }}</h5>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="saveUsuario()" #usuarioForm="ngForm">
+  
+          <!-- Nombre -->
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              class="form-control"
+              [(ngModel)]="usuario.nombre"
+              name="nombre"
+              placeholder="Ingresa el nombre"
+              required
+            >
+          </div>
+  
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              [(ngModel)]="usuario.email"
+              name="email"
+              placeholder="usuario@ejemplo.com"
+              required
+            >
+          </div>
+  
+          <!-- Botones -->
+          <div class="d-flex gap-2">
+            <button
+              type="submit"
+              class="btn btn-success px-4"
+              [disabled]="usuarioForm.invalid"
+            >
+              <i class="bi bi-save"></i>
+              {{ editing ? 'Actualizar' : 'Guardar' }}
+            </button>
+  
+            <button
+              type="button"
+              class="btn btn-secondary px-4"
+              (click)="resetForm()"
+              *ngIf="editing"
+            >
+              <i class="bi bi-x-circle"></i> Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Tabla -->
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+          <i class="bi bi-list"></i> Lista de Usuarios
+        </h5>
+        <span class="badge bg-info text-dark">{{ usuarios.length }} registros</span>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let u of usuarios">
+              <td>{{ u.id }}</td>
+              <td>{{ u.nombre }}</td>
+              <td>{{ u.email }}</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-sm btn-outline-warning me-2"
+                  (click)="editUsuario(u)"
+                >
+                  <i class="bi bi-pencil"></i> Editar
+                </button>
+                <button
+                  class="btn btn-sm btn-outline-danger"
+                  (click)="openConfirmDelete(confirmModal, u)"
+                >
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot *ngIf="usuarios.length === 0">
+            <tr>
+              <td colspan="4" class="text-center text-muted py-4">
+                <i class="bi bi-emoji-frown"></i> No hay usuarios registrados
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  
+    <!-- Modal de Confirmación -->
+    <ng-template #confirmModal let-modal>
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">
+          <i class="bi bi-exclamation-triangle"></i> Confirmar Eliminación
+        </h5>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de que deseas eliminar al usuario?</p>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Nombre:</strong> {{ usuario.nombre }}</li>
+          <li class="list-group-item"><strong>Email:</strong> {{ usuario.email }}</li>
+        </ul>
+        <p class="text-danger mt-3"><small>Esta acción no se puede deshacer.</small></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="deleteUsuario()">
+          <i class="bi bi-trash"></i> Sí, Eliminar
+        </button>
+      </div>
+    </ng-template>
+  </div>
+  
