@@ -64,11 +64,8 @@ ng serve
 
 ## 🗄️ Base de Datos
 
-La base de datos se crea automáticamente al ejecutar el backend por primera vez:
-
 - **Base de datos**: `crud_db`
 - **Tabla**: `usuarios`
-- **Datos de ejemplo**: Se insertan automáticamente 3 usuarios de prueba
 
 ### Estructura de la tabla usuarios:
 ```sql
@@ -112,12 +109,6 @@ $password = "";             // Contraseña de MySQL
 - **Navbar**: Navegación responsive con estados de autenticación
 - **Footer**: Enlaces, redes sociales y newsletter
 - **Notificaciones**: Sistema de toasts para feedback
-
-## 🔐 Autenticación
-
-### Usuarios de Prueba
-- **Admin**: `admin@codelearn.com` / `1234`
-- **Usuarios de ejemplo**: Se crean automáticamente en la base de datos
 
 ### Funcionalidades
 - Registro de nuevos usuarios
@@ -171,8 +162,4 @@ Las contribuciones son bienvenidas. Por favor:
 4. Push a la rama
 5. Abre un Pull Request
 
-## 📞 Soporte
-
-Para soporte técnico o preguntas, contacta a:
-- Email: info@codelearn.com
-- Discord: [Enlace al servidor]
+vidor]
